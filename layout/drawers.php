@@ -125,7 +125,6 @@ $templatecontext = [
     'headercontent' => $headercontent,
     'addblockbutton' => $addblockbutton
 ];
-
 // Get and use the course related hints HTML code, if any hints are configured.
 $courserelatedhintshtml = theme_boost_union_get_course_related_hints();
 if ($courserelatedhintshtml) {

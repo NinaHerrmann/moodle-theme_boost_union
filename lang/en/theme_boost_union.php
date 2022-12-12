@@ -47,7 +47,12 @@ $string['layoutheading'] = 'Layout';
 // ... ... Setting: Course content max width.
 $string['coursecontentmaxwidthsetting'] = 'Course content max width';
 $string['coursecontentmaxwidthsetting_desc'] = 'With this setting, you can override Moodle\'s default content width without manual SCSS modifications. By default, Moodle uses a course content max width of 830px. You can enter other pixel-based values like 1200px, but you can also enter a percentage-based value like 100% or a viewport-width value like 90vw.';
-
+// Setting Course header.
+$string['courseheader'] = 'Course Header';
+$string['coursebackgroundimagedefault'] = 'Default image';
+$string['coursebackgroundimagedefault_desc'] = 'The image is displayed when no picture for the course is set.';
+$string['coursebackgroundimageenabled'] = 'Display the course image in courses';
+$string['coursebackgroundimageenabled_desc'] = 'When enabled, course images are <b>also</b> displayed in the header of the course. Images are always displayed in the course overview.';
 // Settings: Branding tab.
 $string['brandingtab'] = 'Branding';
 // ... Section: Favicon.

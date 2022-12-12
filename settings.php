@@ -194,9 +194,31 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
         $setting->set_updatedcallback('theme_reset_all_caches');
         $tab->add($setting);
 
+        // Course header settings.
+        $name = 'theme_boost_union/courseheader';
+        $title = get_string('courseheader', 'theme_boost_union', null, true);
+        $setting = new admin_setting_heading($name, $title, null);
+        $tab->add($setting);
+
+        // Setting: Backgroundimage enabled.
+        $name = 'theme_boost_union/coursebackgroundimageenabled';
+        $title = get_string('coursebackgroundimageenabled', 'theme_boost_union', array(), true);
+        $description = get_string('coursebackgroundimageenabled_desc', 'theme_boost_union', array(), true);
+        $setting = new admin_setting_configselect($name, $title, $description, THEME_BOOST_UNION_SETTING_SELECT_NO,
+            $yesnooption);
+        $tab->add($setting);
+
+        $name = 'theme_boost_union/coursebackgroundimagedefault';
+        $title = get_string('coursebackgroundimagedefault', 'theme_boost_union', array(), true);
+        $description = get_string('coursebackgroundimagedefault_desc', 'theme_boost_union', array(), true);
+        $setting = new admin_setting_configstoredfile($name, $title, $description, 'coursebackgroundimagedefault', 0,
+            array('maxfiles' => 1, 'accepted_types' => 'web_image'));
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $tab->add($setting);
+        $page->hide_if('theme_boost_union/coursebackgroundimagedefault', 'theme_boost_union/coursebackgroundimageenabled', 'neq',
+            THEME_BOOST_UNION_SETTING_SELECT_YES);
         // Add tab to settings page.
         $page->add($tab);
-
 
         // Create branding tab.
         $tab = new admin_settingpage('theme_boost_union_look_branding', get_string('brandingtab', 'theme_boost_union', null, true));
@@ -994,7 +1016,6 @@ if ($hassiteconfig || has_capability('theme/boost_union:configure', context_syst
 
         // Add tab to settings page.
         $page->add($tab);
-
 
         // Add settings page to the admin settings category.
         $ADMIN->add('theme_boost_union', $page);

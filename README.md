@@ -86,6 +86,16 @@ In this tab there are the following settings:
 
 With this setting, you can override Moodle's default content width without manual SCSS modifications.
 
+##### Course Header
+
+###### Display the course image in courses
+
+This setting controls the depiction of course images on the course page header.
+
+###### Default image
+
+With this setting, a default image is displayed for all courses without an image.
+
 #### Tab "Branding"
 
 In this tab there are the following settings:

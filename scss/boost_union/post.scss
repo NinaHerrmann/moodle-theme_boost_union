@@ -3,6 +3,22 @@
  ======================================*/
 
 /*---------------------------------------
+ * Setting: Course background image.
+ --------------------------------------*/
+#coursebackgroundimage {
+    background-size: cover;
+    background-position: center center;
+    margin: -1.5rem -1.5rem 0rem -1.5rem;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    height: 150px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+/*---------------------------------------
  * Setting: Additional resources.
  --------------------------------------*/
 

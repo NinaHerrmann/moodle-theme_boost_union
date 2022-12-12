@@ -7,6 +7,7 @@ Changes
 ### Unreleased
 
 * 2022-11-28 - Updated Moodle Plugin CI to latest upstream recommendations
+* 2022-12-12 - Add settings and layouts to enable/disable showing course images or default images in the header of the course page.
 
 ### v4.0-r8
 

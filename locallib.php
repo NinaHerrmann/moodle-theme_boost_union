@@ -1122,3 +1122,39 @@ function theme_boost_union_add_fontawesome_to_page() {
         }
     }
 }
+/**
+ * Helper function get a backgroundimage for a course from the course settings or the default image.
+ * Otherwise, return null
+ * *
+ * @return null | string
+ */
+function theme_boost_union_get_course_background_image() {
+    global $PAGE;
+
+    // If the course has an image take it.
+    $courseimage = \core_course\external\course_summary_exporter::get_course_image($PAGE->course);
+    if ($courseimage) {
+        return $courseimage;
+    } else if (get_config('theme_boost_union', 'coursebackgroundimagedefault')) {
+        // If we have a default image take it (hopefully cached).
+        static $files = null;
+
+        if ($files == null) {
+            // Get the system context.
+            $systemcontext = \context_system::instance();
+
+            // Get filearea.
+            $fs = get_file_storage();
+
+            // Get all files from filearea.
+            $files = $fs->get_area_files($systemcontext->id, 'theme_boost_union', 'coursebackgroundimagedefault',
+                false, 'itemid', false);
+        }
+        // Should not happen but in case we have multiple files take most recent.
+        $file = reset($files);
+        return moodle_url::make_pluginfile_url($file->get_contextid(), $file->get_component(), $file->get_filearea(),
+            $file->get_itemid(), $file->get_filepath(), $file->get_filename());
+    }
+    // No picture found return null.
+    return null;
+}
